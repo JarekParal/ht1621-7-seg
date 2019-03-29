@@ -73,6 +73,7 @@ void HT1621::wrDATA(unsigned char data, unsigned char cnt) {
 	unsigned char i;
 	for (i = 0; i < cnt; i++) {
 		digitalWrite(_wr_p, LOW);
+		DELAY_ACTION;
 		if (data & 0x80) {
 			digitalWrite(_data_p, HIGH);
 		}
@@ -80,7 +81,9 @@ void HT1621::wrDATA(unsigned char data, unsigned char cnt) {
 		{
 			digitalWrite(_data_p, LOW);
 		}
+		DELAY_ACTION;
 		digitalWrite(_wr_p, HIGH);
+		DELAY_ACTION;
 		data <<= 1;
 	}
 }
@@ -88,10 +91,12 @@ void HT1621::wrclrdata(unsigned char addr, unsigned char sdata)
 {
 	addr <<= 2;
 	digitalWrite(_cs_p, LOW);
+	DELAY_ACTION;	
 	wrDATA(0xa0, 3);
 	wrDATA(addr, 6);
 	wrDATA(sdata, 8);
 	digitalWrite(_cs_p, HIGH);
+	DELAY_ACTION;
 }
 
 void HT1621::display()
@@ -108,10 +113,12 @@ void HT1621::wrone(unsigned char addr, unsigned char sdata)
 {
 	addr <<= 2;
 	digitalWrite(_cs_p, LOW);
+	DELAY_ACTION;
 	wrDATA(0xa0, 3);
 	wrDATA(addr, 6);
 	wrDATA(sdata, 8);
 	digitalWrite(_cs_p, HIGH);
+	DELAY_ACTION;
 }
 void HT1621::backlight()
 {
@@ -127,9 +134,11 @@ void HT1621::noBacklight()
 }
 void HT1621::wrCMD(unsigned char CMD) {  //100
 	digitalWrite(_cs_p, LOW);
+	DELAY_ACTION;
 	wrDATA(0x80, 4);
 	wrDATA(CMD, 8);
 	digitalWrite(_cs_p, HIGH);
+	DELAY_ACTION;
 }
 void HT1621::config()
 {

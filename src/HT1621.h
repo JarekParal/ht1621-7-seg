@@ -44,6 +44,8 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #define  WDTDIS1  0X0A             //0b1000 0000 1010  禁止看门狗
 #define  BUFFERSIZE 12
 
+#define DELAY_ACTION delayMicroseconds(1) //vTaskDelay(1)
+
 class  HT1621
 {
 public:
