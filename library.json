@@ -1,0 +1,13 @@
+{
+    "name": "HT1621 ESP32",
+    "keywords": "ESP32, HT1621, 7-seg LCDs",
+    "description": "A library for HT1621 based 7-seg LCDs. Supports signed integers and signed floats up to 6 digits (sign included).",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/JarekParal/ht1621-7-seg"
+    },
+    "version": "2.0.1",
+    "frameworks": [ "arduino" ],
+    "platforms": "espressif32"
+}
